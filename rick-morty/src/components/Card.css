@@ -15,8 +15,8 @@
   .cardImage {
     border-radius: 10%;
     width: 17vw;
-    height: 20vw;
-    margin: 1vh;
+    height: 21vw;
+    margin: 0.5vh;
     object-fit: cover;
   }
   
