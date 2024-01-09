@@ -14,10 +14,13 @@
   
   .cardImage {
     border-radius: 10%;
+    display: flex;
     width: 17vw;
     height: 21vw;
     margin: 0.5vh;
     object-fit: cover;
+    justify-content: center;
+    align-items: center;
   }
   
   .cardContent {

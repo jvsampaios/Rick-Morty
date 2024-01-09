@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import './Card.css'; // Importe o arquivo CSS
+import './Card.css';
 
-const Card = ({ character }) => {
+interface Character {
+  name: string;
+  image: string;
+  species: string;
+  gender: string;
+  location: {
+    name: string;
+    url: string;
+  };
+  origin: {
+    name: string;
+    url: string;
+  };
+}
 
-  const [locationInfo, setLocationInfo] = useState('');
-  const [originInfo, setOriginInfo] = useState('');
-
+const Card: React.FC<{ character: Character }> = ({ character }) => {
+  const [locationInfo, setLocationInfo] = useState<React.ReactNode>('');
+  const [originInfo, setOriginInfo] = useState<React.ReactNode>('');
 
   useEffect(() => {
-    const fetchLocationInfo = async (url, infoSetter) => {
+    const fetchLocationInfo = async (url: string, infoSetter: React.Dispatch<React.SetStateAction<React.ReactNode>>) => {
       try {
         const response = await axios.get(url);
         const { name, dimension, type, residents } = response.data;
